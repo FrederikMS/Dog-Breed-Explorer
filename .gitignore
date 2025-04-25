@@ -174,5 +174,6 @@ cython_debug/
 .pypirc
 
 # Specific files
-.poetry.lock
-.test.py
+poetry.lock
+test.py
+pynes-case-50f5db6cfad9.json
