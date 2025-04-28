@@ -1,9 +1,8 @@
 {{ config(materialized="table") }}
-WITH source_data AS
-( SELECT * FROM bronze.dog_api_raw
-)
+with source_data as (select * from bronze.dog_api_raw)
 
-select source_data.*, 
+select
+    source_data.*,
     case
         when
             instr(weight.imperial, '-') - 1 > 0
@@ -18,7 +17,7 @@ select source_data.*,
         when weight.metric = 'NaN'
         then null
         else cast(weight.imperial as decimal)
-    end as height_imperial_lower,
+    end as weight_imperial_lower,
     case
         when instr(weight.imperial, '-') - 1 > 0
         then
@@ -37,7 +36,7 @@ select source_data.*,
         when weight.metric = 'NaN'
         then null
         else cast(weight.imperial as decimal)
-    end as height_imperial_upper,
+    end as weight_imperial_upper,
     case
         when
             instr(weight.metric, '-') - 1 > 0

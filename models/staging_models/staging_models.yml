@@ -1,0 +1,65 @@
+
+version: 2
+
+models:
+    - name: type_cast_weight
+      description: "Takes data from bigQuery table bronze.dog_api_raw and type casts weight as decimals"
+      columns:
+          - name: weight
+            description: "The weight in imperial and metric scale"
+            tests:
+                - not_null
+          - name: height
+            description: "The height in imperial and metric scale"
+            tests:
+                - not_null
+          - name: id
+            description: "Primary key of the dataset"
+            tests:
+                - not_null
+                - unique
+          - name: name
+            description: "Name of the breed"
+          - name: bred_for
+            description: "Primary purpose for breed"
+          - name: breed_group
+            description: "Group of breed"
+          - name: life_span
+            description: "Average lifespan"
+          - name: temperament
+            description: "General temperament"
+          - name: origin
+            description: "Country of origin"
+          - name: reference_image_id
+            description: "Id of reference image"
+          - name: country_code
+            description: "Country code of origin"
+          - name: description
+            description: "General description of the breed"
+          - name: history
+            description: "General history of the breed"
+          - name: weight_imperial_lower
+            description: "Lower imperial weight"
+            tests:
+              - not_null
+          - name: weight_imperial_upper
+            description: "Upper imperial weight"
+            tests:
+              - not_null
+          - name: weight_metric_lower
+            description: "Lower metric weight"
+            tests:
+              - not_null
+          - name: weight_metric_higher
+            description: "Upper metric weight"
+            tests:
+              - not_null
+
+    - name: type_cast_height
+      description: "A starter dbt model"
+      columns:
+          - name: id
+            description: "The primary key for this table"
+            tests:
+                - unique
+                - not_null
