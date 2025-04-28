@@ -1,4 +1,4 @@
-with source_data as (select * from {{ ref("type_cast_height_and_weight") }})
+with source_data as (select * from {{ ref("type_cast_height") }})
 
 select
     *,
@@ -14,4 +14,3 @@ select
     /* using regex to extract last numer*/
     array_reverse(regexp_extract_all(life_span, r'\d+'))[offset(0)] as life_span_upper
 from source_data
-
