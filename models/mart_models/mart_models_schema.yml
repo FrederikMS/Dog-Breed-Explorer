@@ -1,0 +1,167 @@
+
+version: 2
+
+models:
+    - name: dim_breed
+      description: "A dimention model over breed_group"
+      columns:
+          - name: breed_group
+            description: "The primary key for this table"
+            tests:
+              - unique
+          - name: number_of_counts
+            description: "Amount of counts within each group"
+            tests:
+              - not_null
+          - name: height_imperial_min
+            description: "The minimum imperial height"
+            tests:
+              - not_null
+          - name: height_imperial_max
+            description: "The maximum imperial height"
+            tests:
+              - not_null
+          - name: height_metric_min
+            description: "The minimum metric height"
+            tests:
+              - not_null
+          - name: height_metric_max
+            description: "The maximum metric height"
+            tests:
+              - not_null
+          - name: weight_imperial_min
+            description: "The minimum imperial weight"
+            tests:
+              - not_null
+          - name: weight_imperial_max
+            description: "The maximal imperial weight"
+            tests:
+              - not_null
+          - name: weight_metric_min
+            description: "The minimum metric weight"
+            tests:
+              - not_null
+          - name: weight_metric_max
+            description: "The maximum metric weight"
+            tests:
+              - not_null
+          - name: life_span_min
+            description: "The minimum life span"
+            tests:
+              - not_null
+          - name: life_span_max
+            description: "The maximum life span"
+            tests:
+              - not_null          
+
+    - name: fact_weight_life_span
+      description: "A model displaying facts about weight and height, for each combination of life spans"
+      columns:
+          - name: life_span_lower
+            description: "The lower life span"
+            tests:
+                - not_null
+          - name: life_span_upper
+            description: "The upper life span"
+            tests:
+                - not_null
+          - name: number_of_counts
+            description: "The number of counts for the combination of lower and upper lifespan"
+            tests:
+                - not_null
+          - name: weight_imperial_lower_min
+            description: "The minimum of the lower imperial weight"
+            tests:
+                - not_null
+          - name: weight_imperial_lower_avg
+            description: "The average of the lower imperial weight"
+            tests:
+                - not_null
+          - name: weight_imperial_lower_max
+            description: "The maximum of the lower imperial weight"
+            tests:
+                - not_null
+          - name: weight_imperial_upper_min
+            description: "The minimum of the upper imperial weight"
+            tests:
+                - not_null
+          - name: weight_imperial_upper_avg
+            description: "The average of the upper imperial weight"
+            tests:
+                - not_null
+          - name: weight_imperial_upper_max
+            description: "The maximum of the upper imperial weight"
+            tests:
+                - not_null
+          - name: weight_metric_lower_min
+            description: "The minimum of the lower metric weight"
+            tests:
+                - not_null
+          - name: weight_metric_lower_avg
+            description: "The average of the lower metric weight"
+            tests:
+                - not_null
+          - name: weight_metric_lower_max
+            description: "The maximum of the lower metric weight"
+            tests:
+                - not_null
+          - name: weight_metric_upper_min
+            description: "The minimum of the upper metric weight"
+            tests:
+                - not_null
+          - name: weight_metric_upper_avg
+            description: "The average of the upper metric weight"
+            tests:
+                - not_null
+          - name: weight_metric_upper_max
+            description: "The maximum of the upper metric weight"
+            tests:
+                - not_null
+          - name: height_imperial_lower_min
+            description: "The minimum of the lower imperial height"
+            tests:
+                - not_null
+          - name: height_imperial_lower_avg
+            description: "The average of the lower imperial height"
+            tests:
+                - not_null
+          - name: height_imperial_lower_max
+            description: "The maximum of the lower imperial height"
+            tests:
+                - not_null
+          - name: height_imperial_upper_min
+            description: "The minimum of the upper imperial height"
+            tests:
+                - not_null
+          - name: height_imperial_upper_avg
+            description: "The average of the upper imperial height"
+            tests:
+                - not_null
+          - name: height_imperial_upper_max
+            description: "The maximum of the upper imperial height"
+            tests:
+                - not_null
+          - name: height_metric_lower_min
+            description: "The minimum of the lower metric height"
+            tests:
+                - not_null
+          - name: height_metric_lower_avg
+            description: "The average of the lower metric height"
+            tests:
+                - not_null
+          - name: height_metric_lower_max
+            description: "The maximum of the lower metric height"
+            tests:
+                - not_null
+          - name: height_metric_upper_min
+            description: "The minimum of the upper metric height"
+            tests:
+                - not_null
+          - name: height_metric_upper_avg
+            description: "The average of the upper metric height"
+            tests:
+                - not_null
+          - name: height_metric_upper_max
+            description: "The maximum of the upper metric height"
+            tests:
+                - not_null
