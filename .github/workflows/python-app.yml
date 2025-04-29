@@ -33,15 +33,13 @@ jobs:
         key: venv-${{ hashFiles('poetry.lock') }}
     - name: Install the project dependencies
       run: poetry install
-    - name: Set up dbt profiles directory
+    - name: Set up dbt profiles directory and keyfile
       run: |
         mkdir -p ~/.dbt
-        echo "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
-        mkdir -p ~/.dbt
-        echo "${DBT_SERVICE_ACCOUNT}" > /tmp/dbt-keyfile.json
-        echo "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
+        printf '%s' "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
+        printf '%s' "${DBT_SERVICE_ACCOUNT}" > /tmp/dbt-keyfile.json
       env:
-        BIGQUERY_KEYFILE_JSON: ${{ secrets.DBT_SERVICE_ACCOUNT }}
+        DBT_SERVICE_ACCOUNT: ${{ secrets.DBT_SERVICE_ACCOUNT }}
         DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
     - name: dbt
       run: |
