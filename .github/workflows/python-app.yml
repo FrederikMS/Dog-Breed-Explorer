@@ -47,5 +47,5 @@ jobs:
         cat ~/.dbt/profiles.yml
     - name: dbt
       run: |
-        poetry run dbt run --profiles-dir .dbt/profiles.yml
-        poetry run dbt test --profiles-dir .dbt/profiles.yml
+        poetry run dbt run
+        poetry run dbt test
