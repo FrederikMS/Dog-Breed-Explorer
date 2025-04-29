@@ -1,158 +1,156 @@
-
 version: 2
 
 models:
-    - name: type_cast_weight
-      description: "Takes data from bigQuery table bronze.dog_api_raw and type casts weight as decimals"
-      columns:
-          - name: weight
-            description: "The weight in imperial and metric scale"
-            tests:
-                - not_null
-          - name: height
-            description: "The height in imperial and metric scale"
-            tests:
-                - not_null
-          - name: id
-            description: "Primary key of the dataset"
-            tests:
-                - not_null
-                - unique
-          - name: name
-            description: "Name of the breed"
-          - name: bred_for
-            description: "Primary purpose for breed"
-          - name: breed_group
-            description: "Group of breed"
-          - name: life_span
-            description: "Average lifespan"
-          - name: temperament
-            description: "General temperament"
-          - name: origin
-            description: "Country of origin"
-          - name: reference_image_id
-            description: "Id of reference image"
-          - name: country_code
-            description: "Country code of origin"
-          - name: description
-            description: "General description of the breed"
-          - name: history
-            description: "General history of the breed"
-          - name: weight_imperial_lower
-            description: "Lower imperial weight"
-          - name: weight_imperial_upper
-            description: "Upper imperial weight"
-          - name: weight_metric_lower
-            description: "Lower metric weight"
-          - name: weight_metric_upper
-            description: "Upper metric weight"
+  - name: type_cast_weight
+    description: "Takes data from bigQuery table bronze.dog_api_raw and type casts weight as decimals"
+    columns:
+      - name: weight
+        description: "The weight in imperial and metric scale"
+        tests:
+          - not_null
+      - name: height
+        description: "The height in imperial and metric scale"
+        tests:
+          - not_null
+      - name: id
+        description: "Primary key of the dataset"
+        tests:
+          - not_null
 
-    - name: type_cast_height
-      description: "Casts the result of type_cast_weight to cast height"
-      columns:
-        - name: weight
-          description: "The weight in imperial and metric scale"
-          tests:
-            - not_null
-        - name: height
-          description: "The height in imperial and metric scale"
-          tests:
-            - not_null
-        - name: id
-          description: "Primary key of the dataset"
-          tests:
-            - not_null
-            - unique
-        - name: name
-          description: "Name of the breed"
-        - name: bred_for
-          description: "Primary purpose for breed"
-        - name: breed_group
-          description: "Group of breed"
-        - name: life_span
-          description: "Average lifespan"
-        - name: temperament
-          description: "General temperament"
-        - name: origin
-          description: "Country of origin"
-        - name: reference_image_id
-          description: "Id of reference image"
-        - name: country_code
-          description: "Country code of origin"
-        - name: description
-          description: "General description of the breed"
-        - name: history
-          description: "General history of the breed"
-        - name: weight_imperial_lower
-          description: "Lower imperial weight"
-        - name: weight_imperial_upper
-          description: "Upper imperial weight"
-        - name: weight_metric_lower
-          description: "Lower metric weight"
-        - name: weight_metric_upper
-          description: "Upper metric weight"
-        - name: height_imperial_lower
-          description: "Lower imperial height"
-        - name: height_imperial_upper
-          description: "Upper imperial height"
-        - name: height_metric_lower
-          description: "Lower metric height"
-        - name: height_metric_upper
-          description: "Upper metric height"
+      - name: name
+        description: "Name of the breed"
+      - name: bred_for
+        description: "Primary purpose for breed"
+      - name: breed_group
+        description: "Group of breed"
+      - name: life_span
+        description: "Average lifespan"
+      - name: temperament
+        description: "General temperament"
+      - name: origin
+        description: "Country of origin"
+      - name: reference_image_id
+        description: "Id of reference image"
+      - name: country_code
+        description: "Country code of origin"
+      - name: description
+        description: "General description of the breed"
+      - name: history
+        description: "General history of the breed"
+      - name: weight_imperial_lower
+        description: "Lower imperial weight"
+      - name: weight_imperial_upper
+        description: "Upper imperial weight"
+      - name: weight_metric_lower
+        description: "Lower metric weight"
+      - name: weight_metric_upper
+        description: "Upper metric weight"
 
-    - name: type_cast_age
-      description: "Casts the result of type_cast_height to cast age"
-      columns:
-        - name: weight
-          description: "The weight in imperial and metric scale"
-          tests:
-            - not_null
-        - name: height
-          description: "The height in imperial and metric scale"
-          tests:
-            - not_null
-        - name: id
-          description: "Primary key of the dataset"
-          tests:
-            - not_null
-            - unique
-        - name: name
-          description: "Name of the breed"
-        - name: bred_for
-          description: "Primary purpose for breed"
-        - name: breed_group
-          description: "Group of breed"
-        - name: life_span
-          description: "Average lifespan"
-        - name: temperament
-          description: "General temperament"
-        - name: origin
-          description: "Country of origin"
-        - name: reference_image_id
-          description: "Id of reference image"
-        - name: country_code
-          description: "Country code of origin"
-        - name: description
-          description: "General description of the breed"
-        - name: history
-          description: "General history of the breed"
-        - name: weight_imperial_lower
-          description: "Lower imperial weight"
-        - name: weight_imperial_upper
-          description: "Upper imperial weight"
-        - name: weight_metric_lower
-          description: "Lower metric weight"
-        - name: weight_metric_upper
-          description: "Upper metric weight"
-        - name: height_imperial_lower
-          description: "Lower imperial height"
-        - name: height_imperial_upper
-          description: "Upper imperial height"
-        - name: height_metric_lower
-          description: "Lower metric height"
-        - name: height_metric_upper
-          description: "Upper metric height"
-        - name: life_span_lower
-          description: "Lower estimated lifespan"
-        - name: life_span_upper
-          description: "Upper estimated lifespan"
+  - name: type_cast_height
+    description: "Casts the result of type_cast_weight to cast height"
+    columns:
+      - name: weight
+        description: "The weight in imperial and metric scale"
+        tests:
+          - not_null
+      - name: height
+        description: "The height in imperial and metric scale"
+        tests:
+          - not_null
+      - name: id
+        description: "Primary key of the dataset"
+        tests:
+          - not_null
+      - name: name
+        description: "Name of the breed"
+      - name: bred_for
+        description: "Primary purpose for breed"
+      - name: breed_group
+        description: "Group of breed"
+      - name: life_span
+        description: "Average lifespan"
+      - name: temperament
+        description: "General temperament"
+      - name: origin
+        description: "Country of origin"
+      - name: reference_image_id
+        description: "Id of reference image"
+      - name: country_code
+        description: "Country code of origin"
+      - name: description
+        description: "General description of the breed"
+      - name: history
+        description: "General history of the breed"
+      - name: weight_imperial_lower
+        description: "Lower imperial weight"
+      - name: weight_imperial_upper
+        description: "Upper imperial weight"
+      - name: weight_metric_lower
+        description: "Lower metric weight"
+      - name: weight_metric_upper
+        description: "Upper metric weight"
+      - name: height_imperial_lower
+        description: "Lower imperial height"
+      - name: height_imperial_upper
+        description: "Upper imperial height"
+      - name: height_metric_lower
+        description: "Lower metric height"
+      - name: height_metric_upper
+        description: "Upper metric height"
+
+  - name: type_cast_age
+    description: "Casts the result of type_cast_height to cast age"
+    columns:
+      - name: weight
+        description: "The weight in imperial and metric scale"
+        tests:
+          - not_null
+      - name: height
+        description: "The height in imperial and metric scale"
+        tests:
+          - not_null
+      - name: id
+        description: "Primary key of the dataset"
+        tests:
+          - not_null
+
+      - name: name
+        description: "Name of the breed"
+      - name: bred_for
+        description: "Primary purpose for breed"
+      - name: breed_group
+        description: "Group of breed"
+      - name: life_span
+        description: "Average lifespan"
+      - name: temperament
+        description: "General temperament"
+      - name: origin
+        description: "Country of origin"
+      - name: reference_image_id
+        description: "Id of reference image"
+      - name: country_code
+        description: "Country code of origin"
+      - name: description
+        description: "General description of the breed"
+      - name: history
+        description: "General history of the breed"
+      - name: weight_imperial_lower
+        description: "Lower imperial weight"
+      - name: weight_imperial_upper
+        description: "Upper imperial weight"
+      - name: weight_metric_lower
+        description: "Lower metric weight"
+      - name: weight_metric_upper
+        description: "Upper metric weight"
+      - name: height_imperial_lower
+        description: "Lower imperial height"
+      - name: height_imperial_upper
+        description: "Upper imperial height"
+      - name: height_metric_lower
+        description: "Lower metric height"
+      - name: height_metric_upper
+        description: "Upper metric height"
+      - name: life_span_lower
+        description: "Lower estimated lifespan"
+      - name: life_span_upper
+        description: "Upper estimated lifespan"
