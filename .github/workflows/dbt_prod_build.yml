@@ -15,3 +15,16 @@ jobs:
           -H "Content-Type: application/json" \
           -d '{"cause":"Triggered by GitHub Actions","git_branch":"main"}' \
           https://cloud.getdbt.com/api/v2/accounts/70471823456999/jobs/70471823458332/run/)
+          
+        echo "API response:"
+          echo "$RESPONSE" | jq .
+
+          STATUSCODE=$(echo "$RESPONSE" | jq -r '.status.code // 0')
+          USER_MSG=$(echo "$RESPONSE" | jq -r '.status.user_message // "No user message"')
+
+          echo "User message: $USER_MSG"
+
+          if [[ "$STATUSCODE" -ne 200 ]]; then
+            echo "Failed to trigger dbt Cloud job"
+            exit 1
+          fi
