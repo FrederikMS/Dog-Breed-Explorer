@@ -14,6 +14,7 @@ jobs:
           -H "Accept: application/json" \
           -H "Authorization: Bearer ${{ secrets.DBTCLOUDAPIKEY }}" \
           -H "Content-Type: application/json" \
+          --data '{"cause":"Triggered by GitHub Actions","git_branch":"main"}' \
           https://zv345.us1.dbt.com/api/v2/accounts/70471823456999/jobs/70471823458332/run/) 
           
         echo "API response:"
