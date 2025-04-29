@@ -7,6 +7,10 @@ jobs:
   prep:
     runs-on: ubuntu-latest
     steps:
+    - name: Debug token is loaded
+      run: echo "Token length: ${#DBTCLOUDAPIKEY}"
+      env:
+        DBTCLOUDAPIKEY: ${{ secrets.DBTCLOUDAPIKEY }}
     - name: Run dbt cloud job
       run: |
         RESPONSE=$(curl -v -H "Authorization: Bearer ${{ secrets.DBTCLOUDAPIKEY }}" -H "Content-Type:application/json" -d '{"cause":"Triggered by Github Actions","git_branch":"main"}' https://cloud.getdbt.com/api/v2/accounts/70471823456999/jobs/70471823458332/run/)
