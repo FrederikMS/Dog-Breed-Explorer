@@ -102,4 +102,3 @@ def write_to_table():
 
 if __name__ == "__main__":
     storeDataToBucket()
-    
