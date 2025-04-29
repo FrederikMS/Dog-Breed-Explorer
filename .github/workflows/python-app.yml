@@ -35,5 +35,5 @@ jobs:
       run: poetry install
     - name: dbt
       run: |
-        dbt run
-        dbt test
+        poetry run dbt run
+        poetry run dbt test
