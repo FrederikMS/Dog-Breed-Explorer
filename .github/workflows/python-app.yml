@@ -35,5 +35,5 @@ jobs:
       run: poetry install
     - name: dbt
       run: |
-        poetry run dbt run --profiles-dir Dog-Breed-Explorer/.dbt/profiles.yml
-        poetry run dbt test --profiles-dir Dog-Breed-Explorer/.dbt/profiles.yml
+        poetry run dbt run --profiles-dir .dbt/profiles.yml
+        poetry run dbt test --profiles-dir .dbt/profiles.yml
