@@ -101,10 +101,4 @@ def write_to_table():
 
 
 if __name__ == "__main__":
-    #storeDataToBucket()
-    r = requests.get("https://api.thedogapi.com/v1/breeds")
-    #text = ndjson.dumps(r.json())
-    #formatted_data = ndjson.loads(text)
-    pd.read_json(r)
-    result = [json.dumps(record) for record in r.json()]
-    print(result)
+    storeDataToBucket()
