@@ -1,0 +1,14 @@
+default:
+  outputs:
+    dev:
+      dataset: dbt_frederikms
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      keyfile: /tmp/dbt-keyfile.json
+      location: US
+      method: service-account
+      priority: interactive
+      project: pynes-case
+      threads: 1
+      type: bigquery
+  target: dev

@@ -1,22 +1,47 @@
-name: Install DBT with Nix
+name: Python application
 
 on:
+  push:
+    branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
 
+permissions:
+  contents: read
 
 jobs:
-  install-dbt:
+  build:
+
     runs-on: ubuntu-latest
-  steps:
-  - name: dbt Simple Action
-    uses: CedricLeong/dbt-action-nix@v1
-  - name: Checkout repositoryS
-    uses: actions/checkout@v4
-  - name: Install DBT using Nix
-    uses: CedricLeong/install-dbt-action-nix@v1
-  - name: Verify DBT installation
-    run: dbt --version
-  - name: Run DBT command
-    run: |
-      dbt run
-      dbt test
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install poetry
+      uses: abatilo/actions-poetry@v4
+    - name: Setup a local virtual environment (if no poetry.toml file)
+      run: |
+        poetry config virtualenvs.create true --local
+        poetry config virtualenvs.in-project true --local
+    - uses: actions/cache@v3
+      name: Define a cache for the virtual environment based on the dependencies lock file
+      with:
+        path: ./.venv
+        key: venv-${{ hashFiles('poetry.lock') }}
+    - name: Install the project dependencies
+      run: poetry install
+    - name: Set up dbt profiles directory and keyfile
+      run: |
+        mkdir -p ~/.dbt
+        printf '%s' "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
+        printf '%s' "${DBT_SERVICE_ACCOUNT}" > /tmp/dbt-keyfile.json
+      env:
+        DBT_SERVICE_ACCOUNT: ${{ secrets.DBT_SERVICE_ACCOUNT }}
+        DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
+    - name: dbt
+      run: |
+        poetry run dbt run
+        poetry run dbt test
