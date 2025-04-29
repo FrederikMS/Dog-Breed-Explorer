@@ -37,14 +37,12 @@ jobs:
       run: |
         mkdir -p ~/.dbt
         echo "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
+        mkdir -p ~/.dbt
+        echo "${DBT_SERVICE_ACCOUNT}" > /tmp/dbt-keyfile.json
+        echo "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
       env:
+        BIGQUERY_KEYFILE_JSON: ${{ secrets.DBT_SERVICE_ACCOUNT }}
         DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
-    - name: Debug profile file
-      run: |
-        echo "Contents of ~/.dbt:"
-        ls -la ~/.dbt
-        echo "profiles.yml content:"
-        cat ~/.dbt/profiles.yml
     - name: dbt
       run: |
         poetry run dbt run
