@@ -33,6 +33,12 @@ jobs:
         key: venv-${{ hashFiles('poetry.lock') }}
     - name: Install the project dependencies
       run: poetry install
+    - name: Set up dbt profiles directory
+      run: |
+        mkdir -p ~/.dbt
+        echo "${DBT_PROFILES_YML}" > ~/.dbt/profiles.yml
+      env:
+        DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
     - name: dbt
       run: |
         poetry run dbt run --profiles-dir .dbt/profiles.yml
