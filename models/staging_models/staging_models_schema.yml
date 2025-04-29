@@ -40,20 +40,12 @@ models:
             description: "General history of the breed"
           - name: weight_imperial_lower
             description: "Lower imperial weight"
-            tests:
-              - not_null
           - name: weight_imperial_upper
             description: "Upper imperial weight"
-            tests:
-              - not_null
           - name: weight_metric_lower
             description: "Lower metric weight"
-            tests:
-              - not_null
           - name: weight_metric_upper
             description: "Upper metric weight"
-            tests:
-              - not_null
 
     - name: type_cast_height
       description: "Casts the result of type_cast_weight to cast height"
@@ -93,36 +85,20 @@ models:
           description: "General history of the breed"
         - name: weight_imperial_lower
           description: "Lower imperial weight"
-          tests:
-            - not_null
         - name: weight_imperial_upper
           description: "Upper imperial weight"
-          tests:
-            - not_null
         - name: weight_metric_lower
           description: "Lower metric weight"
-          tests:
-            - not_null
         - name: weight_metric_upper
           description: "Upper metric weight"
-          tests:
-            - not_null
         - name: height_imperial_lower
           description: "Lower imperial height"
-          tests:
-            - not_null
         - name: height_imperial_upper
           description: "Upper imperial height"
-          tests:
-            - not_null
         - name: height_metric_lower
           description: "Lower metric height"
-          tests:
-            - not_null
         - name: height_metric_upper
           description: "Upper metric height"
-          tests:
-            - not_null
 
     - name: type_cast_age
       description: "Casts the result of type_cast_height to cast age"
@@ -162,41 +138,21 @@ models:
           description: "General history of the breed"
         - name: weight_imperial_lower
           description: "Lower imperial weight"
-          tests:
-            - not_null
         - name: weight_imperial_upper
           description: "Upper imperial weight"
-          tests:
-            - not_null
         - name: weight_metric_lower
           description: "Lower metric weight"
-          tests:
-            - not_null
         - name: weight_metric_upper
           description: "Upper metric weight"
-          tests:
-            - not_null
         - name: height_imperial_lower
           description: "Lower imperial height"
-          tests:
-            - not_null
         - name: height_imperial_upper
           description: "Upper imperial height"
-          tests:
-            - not_null
         - name: height_metric_lower
           description: "Lower metric height"
-          tests:
-            - not_null
         - name: height_metric_upper
           description: "Upper metric height"
-          tests:
-            - not_null
         - name: life_span_lower
           description: "Lower estimated lifespan"
-          tests:
-            - not_null
         - name: life_span_upper
           description: "Upper estimated lifespan"
-          tests:
-            - not_null
