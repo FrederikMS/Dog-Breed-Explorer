@@ -12,9 +12,9 @@ jobs:
       run: |
         RESPONSE=$(curl --request POST \
           --url https://cloud.getdbt.com/api/v2/accounts/70471823456999/jobs/70471823458332/run/)
-          --header "Accept: application/json" \
-          --header "Authorization: Bearer ${{ secrets.DBTCLOUDAPIKEY }}" \
-          --header "Content-Type: application/json"
+          --H "Accept: application/json" \
+          --H "Authorization: Bearer ${{ secrets.DBTCLOUDAPIKEY }}" \
+          --H "Content-Type: application/json"
           
         echo "API response:"
           echo "$RESPONSE" | jq .
