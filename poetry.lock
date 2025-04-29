@@ -272,6 +272,19 @@ pytz = "*"
 "zope.interface" = "*"
 
 [[package]]
+name = "dbt"
+version = "1.0.0.40.0"
+description = "The dbt Cloud CLI - an ELT tool for running SQL transformations and data models in dbt Cloud. For more documentation on these commands, visit: docs.getdbt.com"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "dbt-1.0.0.40.0.tar.gz", hash = "sha256:b21726259f1c1c080ac8b7e2dcf5ba84de55071030698f9a08475e7c4ea7ebb9"},
+]
+
+[package.dependencies]
+setuptools = ">=61.2"
+
+[[package]]
 name = "debugpy"
 version = "1.8.14"
 description = "An implementation of the Debug Adapter Protocol for Python"
@@ -1544,4 +1557,4 @@ testing = ["coverage[toml]", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "95742e9706e198da8f5841fac045ae3023ac261dde02d26365495b0d944a24a7"
+content-hash = "930645e3a16df3e3607b576f14692bcde96678b580637caaae3b5c18767590fc"

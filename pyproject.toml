@@ -17,6 +17,7 @@ datetime = "^5.5"
 google-cloud-bigquery-datatransfer = "^3.19.1"
 pandas = "^2.2.3"
 ipykernel = "^6.29.5"
+dbt = "^1.0.0.40.0"
 
 
 [build-system]
