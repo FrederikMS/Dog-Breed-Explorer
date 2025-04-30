@@ -12,5 +12,5 @@ select
         else null
     end as life_span_lower,
     /* using regex to extract last numer*/
-    array_reverse(regexp_extract_all(life_span, r'\d+'))[offset(0)] as life_span_upper
+    cast(array_reverse(regexp_extract_all(life_span, r'\d+'))[offset(0)] as integer) as life_span_upper
 from source_data
