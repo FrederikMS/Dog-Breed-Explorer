@@ -54,6 +54,18 @@ models:
             tests:
               - not_null          
 
+    - name: fact_family_friendly_temperment
+      description: "A model displaying temperaments where 'Friend' is one of the temperaments."
+      columns:
+          - name: temperaments
+            description: "All temperaments"
+            tests:
+              - not_null
+          - name: breed_group
+            description: "The group of breed"
+            tests:
+              - not_null
+
     - name: fact_weight_life_span
       description: "A model displaying facts about weight and height, for each combination of life spans"
       columns:

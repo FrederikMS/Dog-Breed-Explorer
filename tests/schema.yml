@@ -1,0 +1,6 @@
+version: 2
+data_tests:
+  - name: assert_row_count
+    description: >
+      Number of entries/rows should never change.
+      Therefore return records where row count != 172 to make the test fail.
