@@ -1,6 +1,10 @@
 # Dog-Breed-Explorer
 This project primarely uses BigQuery and dbt to explore the data from [thedogapi](https://api.thedogapi.com/v1/breeds)
 
+## Badges
+[![Trigger dbt cloud job to prep views and build docs](https://github.com/FrederikMS/Dog-Breed-Explorer/actions/workflows/dbt_prod_build.yml/badge.svg)](https://github.com/FrederikMS/Dog-Breed-Explorer/actions/workflows/dbt_prod_build.yml)
+[![Python application](https://github.com/FrederikMS/Dog-Breed-Explorer/actions/workflows/python-app.yml/badge.svg)](https://github.com/FrederikMS/Dog-Breed-Explorer/actions/workflows/python-app.yml)
+
 ## In order to bootstrap this repo.
   ### 1. Clone repo
   ### 2. Install requirements from pyproject.toml
